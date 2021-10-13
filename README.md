@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# React: Calculator DBS assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Environment 
 
-## Available Scripts
+- React Version: 16.13.1
+- Node Version: 12(LTS)
+- Default Port: 8000
 
-In the project directory, you can run:
+## Application Demo:
 
-### `yarn start`
+![](https://hrcdn.net/s3_pub/istreet-assets/DyjKYetGu_F8Hiko6qd3fw/calculator.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Functionality Requirements
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- There are 2 input boxes for entering values.
 
-### `yarn test`
+- There are 4 buttons that perform mathematical operations to calculate the result:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - `+` performs addition
 
-### `yarn build`
+  - `-` performs subtraction
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - `*` performs multiplication
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - `/` performs division
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Whenever you click any of these 4 buttons, an operation is performed and result is calculated. This result is rendered in the following div - `<div data-testid="result">Result: {result}</div>`. Here {result} is the result calculated. This div should be rendered only when we have calculated some result. Initially, since no operation is performed, this div should not be rendered.
 
-### `yarn eject`
+- The label between the inputs displays the current operation. The initial operation to show in the label is '+'.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Maintain the total count of operations performed. The count is rendered in the following div - `<div data-testid="total-operations">Total operations performed: {count}</div>`. Here {count} is the total number of operations performed. Initially, this value should be 0.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- There is a 'Reset' button, which, when clicked, clears the input boxes, sets the selected operator back to its default value '+', and clears the result value (thus not rendering the result div). It does not reset the total operations count.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Testing Requirements
 
-## Learn More
+The following data-testid attributes are required in the component for the tests to pass:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Total Operations div should have data-testid attribute 'total-operations'.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Input for first number should have data-testid attribute 'app-input1'.
 
-### Code Splitting
+- Input for second number should have data-testid attribute 'app-input2'.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Label to show selected operator should have data-testid attribute 'selected-operator'.
 
-### Analyzing the Bundle Size
+- Add button should have data-testid attribute 'addButton'.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Subtract button should have data-testid attribute 'subtractButton'.
 
-### Making a Progressive Web App
+- Multiply button should have data-testid attribute 'multiplyButton'.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Divide button should have data-testid attribute 'divideButton'.
 
-### Advanced Configuration
+- Result div should have data-testid attribute 'result'.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Reset button should have data-testid attribute 'resetButton'.
 
-### Deployment
+Please note that component has above data-testids for test cases and certain classes and ids for rendering purposes. It is advised not to change them.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `yarn build` fails to minify
+## Project Specifications
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Read Only Files**
+- src/App.test.js
+
+**Commands**
+- run: 
+```bash
+bash bin/env_setup && . $HOME/.nvm/nvm.sh && npm start
+```
+- install: 
+```bash
+bash bin/env_setup && . $HOME/.nvm/nvm.sh && npm install
+```
+- test: 
+```bash
+bash bin/env_setup && . $HOME/.nvm/nvm.sh && npm test
+```
